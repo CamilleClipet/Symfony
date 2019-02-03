@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{name}} {% endblock %}
+
+
+{% block body %}
+<br>
+
+<section class="lists" style="width: 75%;">
+  {% if lists == '' %}
+  <h2>There aren't any public lists yet!</h2>
+  {% else %}
+  <h2>Lists shared by users</h2>
+  {% for index, list in lists %}
+  <div class="card bg-light">
+    <div class="card-body">
+      <h4 class="card-title">{{lists[index].name}}</h4>
+      <h5>by {{users[index]}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Created on {{lists[index].createdAt | date('d/m/y')}} at {{lists[index].createdAt | date('H:i')}}</h6>
+        <a href={{ path('blog_show',{'id':lists[index].id})}} >See more</a>
+    </div>
+  </div>
+  <br>
+  {% endfor %}
+  {% endif %}
+
+
+
+
+</section>
+
+
+{% endblock %}

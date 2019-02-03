@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1> {{title}}</h1>
+<h3>Discover</h3>
+<br>
+<ul>
+{{movies | raw}}
+</ul>
+
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formList 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+<div style="width:50%">
+
+<h1> Create a new list</h1>
+
+{{ form_start(formList) }}
+
+{{ form_widget(formList) }}
+
+<button type="submit" class="btn btn-success"> Create </button>
+
+{{ form_end(formList)}}
+
+</div>
+
+{% endblock %}

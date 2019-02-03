@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <section  style="display: table; width: 100%;">
+    <div class="left-half" style=" display: inline-block; width: 40%; padding:4px;">
+
+        <img style="display: block;
+        max-width:400px;
+        max-height:500px;
+        width: auto;
+        height: auto;" src={{movie['image']}} alt="Movie image">
+
+      </div>
+
+    <div class="right-half" style="display: inline-block; width: 60%;">
+      <h3>{{movie['title']}}</h3>
+      <h5 class="card-title"><b>Released on:</b> {{movie['release']}} <span style="font-size:15px">({{movie['runtime']}} min)</span></h5>
+      <h6 class="card-subtitle text-muted">{{movie['genres']}}</h6>
+      <hr>
+      <p>{{movie['overview']}}</p>
+    </div>
+  </section>
+
+  <br>
+
+  {% if has_lists == true %}
+
+{{ form_start(choices) }}
+
+{{ form_widget(choices) }}
+
+<button type="submit" class="btn btn-success"> Add to list </button>
+
+{{ form_end(choices)}}
+
+  {% endif %}
+
+  {% if alert == 0 %}
+  <p class="text-success"> Movie successfully added</p>
+  {% elseif alert == 1 %}
+  <p class="text-danger"> Movie salready in this list</p>
+  {% endif %}
+
+
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<article>
+  <h2>{{list.name}}</h2>
+  <div class="metadata text-muted">Created on {{list.createdAt | date('d/m/y')}} at {{list.createdAt | date('H:i')}}
+  </div>
+  <hr>
+  <div class="content">
+    {{movies | raw}}
+    <br>
+    <br>
+    <h4 class="text-success">Search for movies</h4>
+
+    {{ form_start(searchTitle) }}
+
+    {{ form_widget(searchTitle) }}
+
+    <button type="submit" class="btn btn-success"> Search</button> <a href="/blog/{{list.id}}" class="btn">Back</a>
+
+    {{ form_end(searchTitle)}}
+    </br>
+    {{searchResults | raw}}
+    </br>
+  </div>
+</article>
+
+{% endblock %}

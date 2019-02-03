@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{name}} {% endblock %}
+
+
+{% block body %}
+<br>
+
+<section class="lists" style="width: 75%;">
+  {% if list == '' %}
+  <h2>You haven't created any list yet!</h2>
+  <a href="/blog/new">Create a list</a>
+  {% else %}
+  <h2>Your lists</h2>
+  {% for list in list %}
+  <div class="card bg-light">
+    <div class="card-body">
+      <h4 class="card-title">{{list.name}}</h4>
+      <h6 class="card-subtitle mb-2 text-muted">Created on {{list.createdAt | date('d/m/y')}} at {{list.createdAt | date('H:i')}}</h6>
+        <a href={{ path('blog_show',{'id':list.id})}} >See more</a>
+    </div>
+  </div>
+  <br>
+  {% endfor %}
+  {% endif %}
+
+
+
+
+</section>
+
+
+{% endblock %}
